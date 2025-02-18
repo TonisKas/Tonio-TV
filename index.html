@@ -7,54 +7,108 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #111;
             color: white;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: red;
+            padding: 20px;
             text-align: center;
+            border-radius: 10px;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 5px;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+        nav a:hover {
+            background-color: #575757;
         }
         .container {
-            max-width: 800px;
-            margin: auto;
             padding: 20px;
         }
-        .section {
-            background: #222;
-            margin: 20px 0;
+        .content {
+            background-color: #222;
             padding: 20px;
             border-radius: 15px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            margin-bottom: 20px;
         }
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
+        footer {
+            background-color: red;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            border-radius: 10px 10px 0 0;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Tonio TV - Oficiali Svetainė</h1>
+    </header>
+    <nav>
+        <a href="#naujienos">Naujienos</a>
+        <a href="#istorija">Istorija</a>
+        <a href="#adminai">Adminai</a>
+        <a href="#straipsniai">Straipsniai</a>
+        <a href="#pagalba">Pagalba</a>
+    </nav>
     <div class="container">
-        <h1 style="color: red;">Tonio TV</h1>
-        <div class="section">Sveiki atvykę į Tonio TV svetainę!</div>
-        <div class="section">Čia rasite naujausią informaciją apie mūsų turinį.</div>
-        <div class="section">Sekite mus socialiniuose tinkluose!</div>
+        <section id="naujienos" class="content">
+            <h2>Naujausios žinios</h2>
+            <p>Jei nėra žinių, rašykite mums.</p>
+        </section>
+        <section id="istorija" class="content">
+            <h2>Tonio TV istorija</h2>
+            <p>Tonio TV prasidėjo kaip unikalus projektas, patyręs įvairių iššūkių ir sugrįžimų. Dabar jis stipresnis nei bet kada!</p>
+        </section>
+        <section id="adminai" class="content">
+            <h2>Adminai</h2>
+            <ul>
+                <li>Tonis: Pagrindinis įkūrėjas, kūrybingas ir drąsus lyderis.</li>
+                <li>Danielius: Tonio TV redaktorius ir filmų kūrėjas.</li>
+            </ul>
+        </section>
+        <section id="straipsniai" class="content">
+            <h2>Straipsniai</h2>
+            <article>
+                <h3>Pirmasis straipsnis</h3>
+                <p>Neseniai bobulyte paliko viena savo anuka mašinai ir jis dingo bando policija surasti šita dinkusi vaikėza.</p>
+                </ul>
+            </article>
+            <article>
+                <h3>Antrasis straipsnis</h3>
+                <p>Toniui šiandien iškrito dantukas. Danielius nupiešė jo nuotrauką.</p>
+                <p>Komentarai:</p>
+                <ul>
+                    <li>Pasistengiau - Danielius</li>
+                </ul>
+            </article>
+        </section>
+        <section id="pagalba" class="content">
+            <h2>Pagalba klientams</h2>
+            <p>Jei turite klausimų ar problemų, galite susisiekti su mumis el. paštu: tonio.tv.pagalba@example.com</p>
+            <p>Nepamirškite prisijungti prie mūsų Viber grupės.</p>
+            <p>Jei norite įdėti savo komentarų, rašykite į mūsų el. paštą.</p>
+        </section>
     </div>
-    
-    <script>
-        document.addEventListener("scroll", function () {
-            const sections = document.querySelectorAll(".section");
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (sectionTop < windowHeight - 50) {
-                    section.classList.add("visible");
-                } else {
-                    section.classList.remove("visible");
-                }
-            });
-        });
-    </script>
+    <footer>
+        &copy; 2025 Tonio TV. Visos teisės saugomos.
+    </footer>
 </body>
 </html>
