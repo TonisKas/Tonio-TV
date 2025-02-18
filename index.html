@@ -1,86 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tonio TV</title>
     <style>
         body {
-            background-color: black;
-            color: white;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
-        header {
-            background-color: red;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-        }
-        nav {
-            background-color: #333;
-            overflow: hidden;
-        }
-        nav a {
+            background-color: #111;
             color: white;
             text-align: center;
-            padding: 14px 20px;
-            display: inline-block;
-            text-decoration: none;
         }
-        nav a:hover {
-            background-color: red;
-        }
-        .main-content {
+        .container {
+            max-width: 800px;
+            margin: auto;
             padding: 20px;
         }
-        footer {
-            background-color: red;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+        .section {
+            background: #222;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 15px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Tonio TV</h1>
-        <p>Welcome to Tonio TV, your source of entertainment!</p>
-    </header>
-
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Shows</a>
-        <a href="#">Movies</a>
-        <a href="#">About Us</a>
-    </nav>
-
-    <div class="main-content">
-        <h2>Featured Shows</h2>
-        <p>Explore our top-rated TV shows and enjoy hours of entertainment.</p>
-        <div>
-            <h3>Show 1</h3>
-            <p>Description of Show 1.</p>
-        </div>
-        <div>
-            <h3>Show 2</h3>
-            <p>Description of Show 2.</p>
-        </div>
-        <div>
-            <h3>Show 3</h3>
-            <p>Description of Show 3.</p>
-        </div>
+    <div class="container">
+        <h1 style="color: red;">Tonio TV</h1>
+        <div class="section">Sveiki atvykę į Tonio TV svetainę!</div>
+        <div class="section">Čia rasite naujausią informaciją apie mūsų turinį.</div>
+        <div class="section">Sekite mus socialiniuose tinkluose!</div>
     </div>
-
-    <footer>
-        <p>&copy; 2025 Tonio TV. All rights reserved.</p>
-    </footer>
+    
+    <script>
+        document.addEventListener("scroll", function () {
+            const sections = document.querySelectorAll(".section");
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 50) {
+                    section.classList.add("visible");
+                } else {
+                    section.classList.remove("visible");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
